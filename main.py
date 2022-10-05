@@ -12,22 +12,12 @@ def move_it(toBeMoved):
 
 def qrd_website():
     url = input('Input URL: ')
-    filename = "qrd_site.png"
+    filename = input('Save this .png QR code as: ')
     img = qrcode.make(url)
+    filename = filename+'.png'
     img.save(filename)
     moveThis = foundHere + '/' + filename
     move_it(moveThis)
-
-
-def qrd_wifi():
-    name = input('Enter WPA wifi name')
-    value = input('Enter password')
-    wifi_qrcode_generator.wifi_qrcode(
-        name, False, 'WPA', value)
-
-
-def qrd_scan():
-    pass
 
 
 foundHere = os.path.dirname(os.path.abspath(__file__))
